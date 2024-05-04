@@ -31,7 +31,7 @@ const TaskForm = () => {
   //                 labelPlacement="outside"
   //                 placeholder="Title"
   //                 isInvalid={!!formState.errors.title}
-  //                 errorMessage={formState.errors.title?.join(", ")}
+  //                 errorMessage={formState.errors.title}
   //             />
   //             <NextUITextarea
   //                 name={TASK_FORM_NAMES_CONSTANTS.DESCRIPTION}
@@ -39,7 +39,7 @@ const TaskForm = () => {
   //                 labelPlacement="outside"
   //                 placeholder="Description"
   //                 isInvalid={!!formState.errors.description}
-  //                 errorMessage={formState.errors.description?.join(", ")}
+  //                 errorMessage={formState.errors.description}
   //             />
   //             <NextUIInput
   //                 name={TASK_FORM_NAMES_CONSTANTS.DATE}
@@ -47,7 +47,7 @@ const TaskForm = () => {
   //                 labelPlacement="outside"
   //                 placeholder="Date"
   //                 isInvalid={!!formState.errors.date}
-  //                 errorMessage={formState.errors.date?.join(", ")}
+  //                 errorMessage={formState.errors.date}
   //             />
   //             <Button type="submit">Submit</Button>
   //         </div>
