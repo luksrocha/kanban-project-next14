@@ -7,9 +7,9 @@ import { redirect } from "next/navigation";
 
 interface CreateTaskFormState {
     errors: {
-        title?: string[];
-        description?: string[];
-        date?: string[];
+        title?: string;
+        description?: string;
+        date?: string;
     };
 }
 
