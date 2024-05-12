@@ -1,16 +1,14 @@
+import { getCollumns } from "@/actions/collumns/getCollumns";
 import CardsCollum from "@/components/home/CardsCollum/CardsCollum";
-import TaskForm from "@/components/taskForm/TaskForm";
-import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+    const collumns = await getCollumns();
+
     return (
-        <div className="flex gap-5">
-            <p>
-                <Link href="/task-form">Redirect to task form</Link>
-            </p>
-            <CardsCollum />
-            <CardsCollum />
-            <TaskForm />
+        <div className="min-h-full-without-header max-h-full-without-header flex gap-5 py-6 overflow-hidden">
+            {collumns?.map((collumn) => (
+                <CardsCollum key={collumn.id} collumn={collumn} />
+            ))}
         </div>
     );
 }

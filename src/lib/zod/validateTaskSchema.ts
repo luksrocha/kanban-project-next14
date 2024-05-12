@@ -11,9 +11,7 @@ export const validateTaskSchema = z.object({
             message: "Must be an string",
         })
         .min(5, { message: "Must be 5 or more characters long" }),
-    [TASK_FORM_NAMES_CONSTANTS.DATE]: z
-        .string({
-            message: "Must be an string",
-        })
-        .min(5, { message: "Must be 5 or more characters long" }),
+    [TASK_FORM_NAMES_CONSTANTS.COLLUMN]: z
+        .string()
+        .min(1, { message: "Must choose one collumn" }),
 });

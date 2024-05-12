@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import ProvidersWrapper from "@/components/common/ProvidersWrapper";
 
 import "./globals.css";
+import Header from "@/components/common/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +23,9 @@ export default function RootLayout({ children, modal }: RootLayoutProps) {
         <html lang="en">
             <body className={inter.className}>
                 <ProvidersWrapper>
+                    <Header />
                     {modal}
-                    <div className="container mx-auto max-w-screen-2xl min-h-screen">
+                    <div className="container mx-auto max-w-screen-2xl min-h-full-without-header max-h-full-without-header ">
                         {children}
                     </div>
                 </ProvidersWrapper>

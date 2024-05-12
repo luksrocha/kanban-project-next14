@@ -1,29 +1,36 @@
 "use client";
 
 import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
+import { Task } from "@prisma/client";
+import { RefObject, useRef } from "react";
 import { useDrag } from "react-dnd";
 
-const ActivityCard = () => {
+interface ActivityCardProps {
+    task: Task;
+}
+
+const ActivityCard = ({
+    task: { description, title, id },
+}: ActivityCardProps) => {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: "TESTE",
-        item: () => ({ id: "teste" }),
+        item: () => ({ id }),
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         }),
     }));
 
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    drag(cardRef);
+
     return (
-        <Card ref={drag} className=" w-64 h-48 ">
-            <CardHeader>Name of task</CardHeader>
+        <Card ref={cardRef} className="w-64 min-h-48">
+            <CardHeader>{title}</CardHeader>
             <Divider />
             <CardBody className="scrollbar scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-green-900 scrollbar-w-2">
                 <h5>Description:</h5>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Tempore, repellat illo? Pariatur quisquam, unde natus omnis
-                    recusandae beatae explicabo ea iusto reprehenderit molestiae
-                    possimus, enim a nemo. Iure, quisquam consectetur!
-                </p>
+                <p>{description}</p>
             </CardBody>
         </Card>
     );
